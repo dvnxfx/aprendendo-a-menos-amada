@@ -3,40 +3,50 @@ import java.util.Scanner;
 
 public class MediaNota {
  
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
        
        
-    float n1, n2, n3, n4, n5, n6, media1, media2, mediaFinal;    
-       
         try (Scanner entrada = new Scanner(System.in)) {
-            System.out.println("Digite a nota 1");
-            n1 = entrada.nextFloat();
-           
-            System.out.println("Digite a nota 2");
-            n2 = entrada.nextFloat();
-           
-            System.out.println("Digite a nota 3");
-            n3 = entrada.nextFloat();
-           
-            System.out.println("Digite a nota 4");
-            n4 = entrada.nextFloat();
-           
-            System.out.println("Digite a nota 5");
-            n5 = entrada.nextFloat();
-           
-            System.out.println("Digite a nota 6");
-            n6 = entrada.nextFloat();
-           
-            media1 = (n1 + n2 + n3) /3;
-            System.out.println("O valor da média 1 é: " + media1);
-           
-            media2 = (n4 + n5 + n6) /3;
-            System.out.println("O valor da média 2 é: " + media2);
-           
-            mediaFinal= (media1 + media2) /2;
-            System.out.println("O valor da média final é: " + mediaFinal);
-        }
-     
+
+            //array que armazena nota  -> array no lugar de repetir a nota 6 vezes  
+            float[] notas = new float[6]; 
+
+            //loop pra ler nota
+            for (int i = 0; i < 6; i++) {
+                System.out.println("Digite a nota: " + (i + 1));
+                notas[i] = entrada.nextFloat();
+            }
+
+            // calcula média1
+            float soma1 = 0;
+            for (int i = 0; i < 3; i++) {
+                soma1 += notas[i];
+            }
+
+            float media1 = soma1 / 3;
+
+            // calcula média2
+            float soma2 = 0;
+            for (int i = 3; i < 6; i++) {
+                soma2 += notas[i];
+            }
+
+            float media2 = soma2/ 3;
+
+            //calcula media final 
+            
+            float mediaFinal = (media1 + media2) / 2;
+
+
+            // mostra resultados 
+            System.out.println("Média 1 é: " + media1);
+            System.out.println("Média 2 é: " + media2);
+            System.out.println("Média final é: " + mediaFinal);
+
+    
     }
+  }  
 }
- 
